@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.6
 
 # Update source repositories
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.4/main" >> /etc/apk/repositories && \
@@ -19,7 +19,9 @@ RUN export BASE_URL=https://github.com/mozilla/geckodriver/releases/download \
     https://api.github.com/repos/mozilla/geckodriver/releases/latest | \
     grep tag_name | cut -d '"' -f 4) \
   && curl -sL \
-  $BASE_URL/$VERSION/geckodriver-$VERSION-linux64.tar.gz | tar -xz \
+  # $BASE_URL/$VERSION/geckodriver-$VERSION-linux64.tar.gz | tar -xz \
+  # $BASE_URL/v0.16.1/geckodriver-v0.16.1-linux64.tar.gz | tar -xz \
+  $BASE_URL/v0.15.0/geckodriver-v0.15.0-linux64.tar.gz | tar -xz \
   && mv geckodriver /usr/local/bin/geckodriver \
   && chmod a+x /usr/local/bin/geckodriver
 

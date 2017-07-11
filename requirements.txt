@@ -2,4 +2,4 @@ flask
 robotframework
 robotframework-selenium2library
 robotframework-xvfb
-selenium
+selenium==3.3.1

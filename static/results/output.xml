@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20170711 16:13:54.249" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<robot generated="20170711 19:04:31.139" generator="Robot 3.0.2 (Python 2.7.13 on linux2)">
 <suite source="/code/tests/tests.robot" id="s1" name="Tests">
 <test id="s1-t1" name="Create Headless Browser">
 <kw name="Start Virtual Display" library="XvfbRobot">
@@ -8,47 +8,61 @@
 <arg>1920</arg>
 <arg>1080</arg>
 </arguments>
-<msg timestamp="20170711 16:13:54.371" level="INFO">Using virtual display: '1920x1080x24'</msg>
-<status status="PASS" endtime="20170711 16:13:54.613" starttime="20170711 16:13:54.370"></status>
+<msg timestamp="20170711 19:04:31.222" level="INFO">Using virtual display: '1920x1080x24'</msg>
+<status status="PASS" endtime="20170711 19:04:31.439" starttime="20170711 19:04:31.222"></status>
 </kw>
 <kw name="Open Browser" library="Selenium2Library">
 <doc>Opens a new browser instance to given URL.</doc>
 <arguments>
 <arg>https://www.google.ca</arg>
 </arguments>
-<msg timestamp="20170711 16:13:54.615" level="INFO">Opening browser 'firefox' to base url 'https://www.google.ca'</msg>
-<kw name="Capture Page Screenshot" library="Selenium2Library">
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20170711 16:13:55.979" level="FAIL">No browser is open</msg>
-<status status="FAIL" endtime="20170711 16:13:55.979" starttime="20170711 16:13:55.976"></status>
+<msg timestamp="20170711 19:04:31.440" level="INFO">Opening browser 'firefox' to base url 'https://www.google.ca'</msg>
+<status status="PASS" endtime="20170711 19:04:37.927" starttime="20170711 19:04:31.440"></status>
 </kw>
-<msg timestamp="20170711 16:13:55.980" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
-<msg timestamp="20170711 16:13:55.983" level="FAIL">WebDriverException: Message: Unable to find a matching set of capabilities
-</msg>
-<status status="FAIL" endtime="20170711 16:13:55.983" starttime="20170711 16:13:54.614"></status>
+<kw name="Set Window Size" library="Selenium2Library">
+<doc>Sets the `width` and `height` of the current window to the specified values.</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1080</arg>
+</arguments>
+<status status="PASS" endtime="20170711 19:04:37.938" starttime="20170711 19:04:37.928"></status>
+</kw>
+<kw name="Get Title" library="Selenium2Library">
+<doc>Returns title of current page.</doc>
+<assign>
+<var>${title}</var>
+</assign>
+<msg timestamp="20170711 19:04:37.994" level="INFO">${title} = Google</msg>
+<status status="PASS" endtime="20170711 19:04:37.994" starttime="20170711 19:04:37.939"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>Google</arg>
+<arg>Google</arg>
+</arguments>
+<status status="PASS" endtime="20170711 19:04:37.994" starttime="20170711 19:04:37.994"></status>
 </kw>
 <kw type="teardown" name="Close Browser" library="Selenium2Library">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20170711 16:13:55.986" starttime="20170711 16:13:55.986"></status>
+<status status="PASS" endtime="20170711 19:04:38.040" starttime="20170711 19:04:37.995"></status>
 </kw>
-<status status="FAIL" endtime="20170711 16:13:55.986" critical="yes" starttime="20170711 16:13:54.370">WebDriverException: Message: Unable to find a matching set of capabilities
-</status>
+<status status="PASS" endtime="20170711 19:04:38.040" critical="yes" starttime="20170711 19:04:31.221"></status>
 </test>
 <doc>Robot tests kicked off through Flask</doc>
-<status status="FAIL" endtime="20170711 16:13:55.987" starttime="20170711 16:13:54.252"></status>
+<status status="PASS" endtime="20170711 19:04:38.041" starttime="20170711 19:04:31.142"></status>
 </suite>
 <statistics>
 <total>
-<stat fail="1" pass="0">Critical Tests</stat>
-<stat fail="1" pass="0">All Tests</stat>
+<stat fail="0" pass="1">Critical Tests</stat>
+<stat fail="0" pass="1">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat fail="1" id="s1" name="Tests" pass="0">Tests</stat>
+<stat fail="0" id="s1" name="Tests" pass="1">Tests</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20170711 16:13:55.980" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
 </errors>
 </robot>
