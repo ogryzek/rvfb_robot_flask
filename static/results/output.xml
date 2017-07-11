@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20170711 08:54:52.706" generator="Robot 3.0.2 (Python 2.7.12 on darwin)">
-<suite source="/Users/drew/Workspace/testing/robot-scripts/flask_api_xvfb/tests/tests.robot" id="s1" name="Tests">
+<robot generated="20170711 16:13:54.249" generator="Robot 3.0.2 (Python 2.7.12 on linux2)">
+<suite source="/code/tests/tests.robot" id="s1" name="Tests">
 <test id="s1-t1" name="Create Headless Browser">
 <kw name="Start Virtual Display" library="XvfbRobot">
 <doc>Starts virtual display which will be</doc>
@@ -8,18 +8,34 @@
 <arg>1920</arg>
 <arg>1080</arg>
 </arguments>
-<msg timestamp="20170711 08:54:52.801" level="INFO">Using virtual display: '1920x1080x24'</msg>
-<msg timestamp="20170711 08:54:52.912" level="FAIL">Xvfb did not start</msg>
-<status status="FAIL" endtime="20170711 08:54:52.912" starttime="20170711 08:54:52.801"></status>
+<msg timestamp="20170711 16:13:54.371" level="INFO">Using virtual display: '1920x1080x24'</msg>
+<status status="PASS" endtime="20170711 16:13:54.613" starttime="20170711 16:13:54.370"></status>
+</kw>
+<kw name="Open Browser" library="Selenium2Library">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>https://www.google.ca</arg>
+</arguments>
+<msg timestamp="20170711 16:13:54.615" level="INFO">Opening browser 'firefox' to base url 'https://www.google.ca'</msg>
+<kw name="Capture Page Screenshot" library="Selenium2Library">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20170711 16:13:55.979" level="FAIL">No browser is open</msg>
+<status status="FAIL" endtime="20170711 16:13:55.979" starttime="20170711 16:13:55.976"></status>
+</kw>
+<msg timestamp="20170711 16:13:55.980" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
+<msg timestamp="20170711 16:13:55.983" level="FAIL">WebDriverException: Message: Unable to find a matching set of capabilities
+</msg>
+<status status="FAIL" endtime="20170711 16:13:55.983" starttime="20170711 16:13:54.614"></status>
 </kw>
 <kw type="teardown" name="Close Browser" library="Selenium2Library">
 <doc>Closes the current browser.</doc>
-<status status="PASS" endtime="20170711 08:54:52.913" starttime="20170711 08:54:52.913"></status>
+<status status="PASS" endtime="20170711 16:13:55.986" starttime="20170711 16:13:55.986"></status>
 </kw>
-<status status="FAIL" endtime="20170711 08:54:52.913" critical="yes" starttime="20170711 08:54:52.800">Xvfb did not start</status>
+<status status="FAIL" endtime="20170711 16:13:55.986" critical="yes" starttime="20170711 16:13:54.370">WebDriverException: Message: Unable to find a matching set of capabilities
+</status>
 </test>
 <doc>Robot tests kicked off through Flask</doc>
-<status status="FAIL" endtime="20170711 08:54:52.914" starttime="20170711 08:54:52.711"></status>
+<status status="FAIL" endtime="20170711 16:13:55.987" starttime="20170711 16:13:54.252"></status>
 </suite>
 <statistics>
 <total>
@@ -33,5 +49,6 @@
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20170711 16:13:55.980" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: No browser is open</msg>
 </errors>
 </robot>
