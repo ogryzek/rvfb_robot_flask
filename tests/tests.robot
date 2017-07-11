@@ -11,7 +11,7 @@ Create Headless Browser
     Open Browser   https://www.google.ca
     Set Window Size  1920  1080
     ${title} =  Get Title
-    Should Be Equal  Google  Google
+    Should Be Equal  Google  ${title}
     [Teardown]    Close Browser
 
 *** Keywords ***
