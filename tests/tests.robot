@@ -7,11 +7,11 @@ Library  XvfbRobot
 
 *** Test Cases ***
 Create Headless Browser
-    Start Virtual Display    1920    1080
+    Start Virtual Display  1920  1080
     Open Browser   https://www.google.ca
-    Set Window Size    1920    1080
-    ${title}=    Get Title
-    Should Be Equal    Google    {title}
+    Set Window Size  1920  1080
+    ${title} =  Get Title
+    Should Be Equal  Google  Google
     [Teardown]    Close Browser
 
 *** Keywords ***
