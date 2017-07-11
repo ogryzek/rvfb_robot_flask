@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20170711 08:54:52.706" generator="Robot 3.0.2 (Python 2.7.12 on darwin)">
+<suite source="/Users/drew/Workspace/testing/robot-scripts/flask_api_xvfb/tests/tests.robot" id="s1" name="Tests">
+<test id="s1-t1" name="Create Headless Browser">
+<kw name="Start Virtual Display" library="XvfbRobot">
+<doc>Starts virtual display which will be</doc>
+<arguments>
+<arg>1920</arg>
+<arg>1080</arg>
+</arguments>
+<msg timestamp="20170711 08:54:52.801" level="INFO">Using virtual display: '1920x1080x24'</msg>
+<msg timestamp="20170711 08:54:52.912" level="FAIL">Xvfb did not start</msg>
+<status status="FAIL" endtime="20170711 08:54:52.912" starttime="20170711 08:54:52.801"></status>
+</kw>
+<kw type="teardown" name="Close Browser" library="Selenium2Library">
+<doc>Closes the current browser.</doc>
+<status status="PASS" endtime="20170711 08:54:52.913" starttime="20170711 08:54:52.913"></status>
+</kw>
+<status status="FAIL" endtime="20170711 08:54:52.913" critical="yes" starttime="20170711 08:54:52.800">Xvfb did not start</status>
+</test>
+<doc>Robot tests kicked off through Flask</doc>
+<status status="FAIL" endtime="20170711 08:54:52.914" starttime="20170711 08:54:52.711"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="1" pass="0">Critical Tests</stat>
+<stat fail="1" pass="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="1" id="s1" name="Tests" pass="0">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

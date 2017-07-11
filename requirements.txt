@@ -1,0 +1,5 @@
+flask
+robotframework
+robotframework-selenium2library
+robotframework-xvfb
+selenium
