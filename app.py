@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 import os
 import json
 import xmltodict
@@ -7,7 +7,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/', methods=['GET'])
 def run_tests():
-    results = os.popen('pybot -d static/results tests/tests.robot').read()
+    results = setup_results(request.args)
     return results
 
 @app.route('/log.html', methods=['GET'])
@@ -30,6 +30,13 @@ def jsonize(xml_file, xml_attributes=True):
     with open(xml_file, "rb") as f:
         d = xmltodict.parse(f, xml_attribs=xml_attributes)
         return json.dumps(d, indent=2)
+
+def setup_results(params):
+    if 'include' not in params:
+        results = os.popen("pybot -d static/results tests/tests.robot")
+    else:
+        results = os.popen("pybot -d static/results -i {} tests/tests.robot".format(params['include']))
+    return results.read()
 
 # run on 0.0.0.0 so Docker can expose to the outside
 if __name__ == "__main__":
