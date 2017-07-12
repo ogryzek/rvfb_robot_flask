@@ -1,5 +1,7 @@
 from flask import Flask
 import os
+import json
+import xmltodict
 
 app = Flask(__name__, static_url_path='')
 
@@ -19,6 +21,15 @@ def get_report():
 @app.route('/output.xml', methods=['GET'])
 def get_output():
     return app.send_static_file('results/output.xml')
+
+@app.route('/output.json', methods=['GET'])
+def get_output_json():
+    return jsonize('static/results/output.xml')
+
+def jsonize(xml_file, xml_attributes=True):
+    with open(xml_file, "rb") as f:
+        d = xmltodict.parse(f, xml_attribs=xml_attributes)
+        return json.dumps(d, indent=2)
 
 # run on 0.0.0.0 so Docker can expose to the outside
 if __name__ == "__main__":
