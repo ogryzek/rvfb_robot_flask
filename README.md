@@ -1,10 +1,10 @@
-# RvfbRobot Flask API
+# XvfbRobot Flask API
 Kick off [RobotFramework](http://robotframework.org/) tests through a [Flask](http://flask.pocoo.org/) API.
 
 ## Setup
 ```
-git clone git@github.com:ogryzek/rvfb_robot_flask.git
-cd rvfb_robot_flask && git checkout dockerize
+git clone git@github.com:ogryzek/xvfb_robot_flask.git
+cd xvfb_robot_flask && git checkout dockerize
 
 docker-compose build    # build docker image
 docker-compose up -d    # run in the background
