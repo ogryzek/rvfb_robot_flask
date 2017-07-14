@@ -1,5 +1,5 @@
-# XvfbRobot Flask API
-Kick off [RobotFramework](http://robotframework.org/) tests through a [Flask](http://flask.pocoo.org/) API.
+# XvfbRobot Flask API in Docker
+Kick off [RobotFramework](http://robotframework.org/) tests through a [Flask](http://flask.pocoo.org/) API running in Docker.
 
 ## Setup
 ```
