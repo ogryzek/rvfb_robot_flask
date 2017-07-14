@@ -35,4 +35,7 @@ RUN pip install -r requirements.txt
 RUN apk add --update --no-cache bash chromium chromium-chromedriver
 ENV PATH="/usr/bin/chromedriver:${PATH}"
 
+ENTRYPOINT ["bash", "docker-entrypoint.sh"]
+
 CMD ["python", "app.py"]
+
